@@ -1,0 +1,9 @@
+header {
+  background-color: #FDB913;
+  padding: 1rem;
+}
+.logo {
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: bold;
+}

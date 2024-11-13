@@ -1,0 +1,21 @@
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.subtitle {
+  color: #FDB913;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.welcome {
+  margin-bottom: 1rem;
+}
