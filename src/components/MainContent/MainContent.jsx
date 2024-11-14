@@ -1,5 +1,5 @@
-import Input from "./Input";
-import Button from "./Button";
+import Input from "../Input/Input";
+import Button from "../Button/Button";
 import "./MainContent.css";
 
 function MainContent() {

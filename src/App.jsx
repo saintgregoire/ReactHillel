@@ -1,5 +1,5 @@
-import Header from './Components/Header.jsx';
-import MainContent  from './Components/MainContent.jsx';
+import Header from './components/Header/Header';
+import MainContent  from './components/MainContent/MainContent';
 import './App.css'
 
 
