@@ -1,3 +1,4 @@
+import PizzaItem from '../../components/PizzaItem/PizzaItem';
 import './Menu.css';
 
 function Menu() {
@@ -249,19 +250,7 @@ function Menu() {
   return(
     <div className="menu-container">
       {pizzas.map((pizza) => (
-        <div className="pizza-item" key={pizza.id}>
-        <img src={pizza.imageUrl} alt={`${pizza.name} Pizza`} className="pizza-image" />
-        <div className="pizza-info">
-          <h2>{pizza.name}</h2>
-          <p className="ingredients">{pizza.ingredients.join(', ')}</p>
-          {!pizza.soldOut ? (
-            <p className="price">{`€${pizza.unitPrice}.00`}</p>
-          ) : (
-            <p className="sold-out">SOLD OUT</p>
-          )}
-        </div>
-        {!pizza.soldOut && <button className="add-to-cart">ADD TO CART</button>}
-      </div>
+        <PizzaItem key={pizza.id} data={pizza}/>
       ))}
     </div>
   );
