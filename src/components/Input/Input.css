@@ -1,8 +1,17 @@
-input {
+.input-home {
   width: 100%;
   max-width: 300px;
   padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.search-bar {
+  background-color: #ffe084;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  width: 300px;
+  font-style: italic;
 }

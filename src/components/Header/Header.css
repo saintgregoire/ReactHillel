@@ -1,9 +1,17 @@
 header {
   background-color: #FDB913;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .logo {
   font-family: monospace;
   font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.username {
   font-weight: bold;
 }

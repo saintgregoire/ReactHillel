@@ -1,5 +1,6 @@
 import Header from './components/Header/Header';
-import MainContent  from './components/MainContent/MainContent';
+import Home  from './pages/Home/Home';
+import Menu from './pages/Menu/Menu';
 import './App.css'
 
 
@@ -8,7 +9,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <MainContent/>
+      {/* <Home/> */}
+      <Menu />
     </div>
   )
 }
