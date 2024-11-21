@@ -48,3 +48,24 @@
 .add-to-cart:hover {
   background-color: #e5a700;
 }
+
+.counter {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter button {
+  background-color: #FDB913;
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.counter span {
+  font-weight: bold;
+}
