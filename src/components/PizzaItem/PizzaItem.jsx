@@ -1,31 +1,22 @@
 import { useState } from "react";
 
+import Button from "../Button/Button";
 import "./PizzaItem.css";
 
 function PizzaItem(props) {
   const { data } = props;
   const { name, imageUrl, ingredients, unitPrice, soldOut } = data;
 
-  const [isFlex, setIsFlex] = useState(false);
-  const [isBlock, setIsBlock] = useState(true);
-  const [count, setCount] = useState(1);
-
-  const handleClickShowCounter = () => {
-    setIsBlock(false);
-    setIsFlex(true);
-  };
-
-  const decrementCounter = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    } else {
-      setIsFlex(false);
-      setIsBlock(true);
-    }
-  };
+  const [count, setCount] = useState(0);
 
   const incrementCounter = () => {
     setCount(count + 1);
+  };
+
+  const decrementCounter = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
@@ -42,32 +33,27 @@ function PizzaItem(props) {
       </div>
       {!soldOut && (
         <div className="cart-controls">
-          <button
-            className="add-to-cart"
-            style={{ display: isBlock ? "block" : "none" }}
-            onClick={handleClickShowCounter}
-          >
-            ADD TO CART
-          </button>
+          <Button
+            text="ADD TO CART"
+            className={count > 0 ? "hidden" : "add-to-cart"}
+            onClick={incrementCounter}
+          />
           <div
-            className="counter"
-            style={{ display: isFlex ? "flex" : "none" }}
+            className={count > 0 ? "counter" : "hidden"}
           >
-            <button
+            <Button
+              text="-"
+              ariaLabel="Decrease quantity"
               className="decrement"
-              aria-label="Decrease quantity"
               onClick={decrementCounter}
-            >
-              -
-            </button>
+            />
             <span>{count}</span>
-            <button
+            <Button
+              text="+"
+              ariaLabel="Increase quantity"
               className="increment"
-              aria-label="Increase quantity"
               onClick={incrementCounter}
-            >
-              +
-            </button>
+            />
           </div>
         </div>
       )}

@@ -5,14 +5,14 @@ import Button from "../../components/Button/Button";
 import "./Home.css";
 
 function Home() {
-  const [inputValue, setInputValue] = useState("");
+  const [nameInputValue, setNameInputValue] = useState("");
 
   const handleChangeValue = (e) => {
-    setInputValue(e.target.value);
+    setNameInputValue(e.target.value);
   };
 
   const handleClick = () => {
-    console.log(inputValue);
+    console.log(nameInputValue);
   };
 
   return (
@@ -26,7 +26,7 @@ function Home() {
         placeholder="Your full name"
         ariaLabel="Your full name"
         className="input-home"
-        value={inputValue}
+        value={nameInputValue}
         onChange={handleChangeValue}
       />
       <Button text="Start Order" className="btn" onClick={handleClick} />
