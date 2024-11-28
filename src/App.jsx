@@ -11,8 +11,8 @@ function App() {
     <div className="container">
       <Header />
       {/* <Home/> */}
-      {/* <Menu /> */}
-      <Cart />
+      <Menu />
+      {/* <Cart /> */}
     </div>
   )
 }
