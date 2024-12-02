@@ -1,18 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
+import Form from "../../components/Form/Form";
 import "./Home.css";
+
 
 function Home() {
   const [nameInputValue, setNameInputValue] = useState("");
+  const navigate = useNavigate();
 
   const handleChangeValue = (e) => {
     setNameInputValue(e.target.value);
   };
 
   const handleClick = () => {
-    console.log(nameInputValue);
+    navigate("/menu");
   };
 
   return (
@@ -22,14 +24,16 @@ function Home() {
       <p className="welcome">
         👉 Welcome! Please start by telling us your name:
       </p>
-      <Input
+      <Form
         placeholder="Your full name"
-        ariaLabel="Your full name"
-        className="input-home"
+        inputAriaLabel="Your full name"
+        inputClassName="input-home"
         value={nameInputValue}
         onChange={handleChangeValue}
+        btnText="Start Order"
+        onClick={handleClick}
+        btnClassName="btn"
       />
-      <Button text="Start Order" className="btn" onClick={handleClick} />
     </main>
   );
 }

@@ -1,13 +1,6 @@
-.btn {
+button{
   background-color: #FDB913;
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  border-radius: 9999px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-.btn:hover {
-  background-color: #e5a700;
 }

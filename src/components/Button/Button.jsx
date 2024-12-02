@@ -2,10 +2,10 @@ import './Button.css'
 
 function Button(props){
 
-  const {text, onClick, className, ariaLabel} = props;
+  const {text, onClick, className, ariaLabel, type= "button"} = props;
 
   return(
-    <button className={className} aria-label={ariaLabel} onClick={onClick}>{text}</button>
+    <button className={className} aria-label={ariaLabel} onClick={onClick} type={type}>{text}</button>
   )
 }
 

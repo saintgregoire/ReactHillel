@@ -1,7 +1,8 @@
-import CartItem from "../CartItem/CartItem";
-import Button from "../Button/Button";
+import CartItem from "../../components/CartItem/CartItem";
+import Button from "../../components/Button/Button";
 
 import "./Cart.css";
+import { Link } from "react-router";
 
 function Cart() {
   const cartItems = [
@@ -27,9 +28,9 @@ function Cart() {
 
   return (
     <div className="container-cart">
-      <a href="#" className="back-link">
+      <Link to="/menu" className="back-link">
         ← Back to menu
-      </a>
+      </Link>
       <h1 className="cart-title">Your cart, vlad</h1>
 
       <div className="cart-items">

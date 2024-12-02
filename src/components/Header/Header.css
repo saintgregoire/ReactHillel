@@ -6,6 +6,14 @@ header {
   align-items: center;
 }
 
+nav > a{
+  padding-right: 2rem;
+}
+
+nav > a:hover{
+  color: white;
+}
+
 .logo {
   font-family: monospace;
   font-size: 1.25rem;
@@ -14,4 +22,14 @@ header {
 
 .username {
   font-weight: bold;
+}
+
+.search-bar {
+  background-color: #ffe084;
+  border: none;
+  padding: 0.5rem 1rem;
+  width: 300px;
+  font-style: italic;
+
+  display: none;
 }
