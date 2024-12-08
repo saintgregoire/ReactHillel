@@ -1,9 +1,13 @@
 import { NavLink } from "react-router";
 import Input from "../Input/Input";
-
 import "./Header.css";
+import { useContext } from "react";
+import { NameContext } from "../../context/NameContext";
 
 function Header() {
+
+  const {userName} = useContext(NameContext);
+
   return (
     <header>
       <nav>
@@ -18,7 +22,7 @@ function Header() {
         className="search-bar"
         placeholder="Search for the order #"
       />
-      <div className="username">VLAD</div>
+      <div className="username">{userName}</div>
     </header>
   );
 }
