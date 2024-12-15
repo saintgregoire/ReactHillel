@@ -1,12 +1,16 @@
 import "./OrderStatus.css";
 import Badge from '../../components/Badge/Badge'
 import OrderItem from "../../components/OrderItem/OrderItem";
+import { useParams } from "react-router";
 
 function OrderStatus() {
+
+  const {id} = useParams();
+
   return (
     <div className="order_status-container">
       <div className="order_status-header">
-        <h1 className="order-title">Order #5T460L status: preparing</h1>
+        <h1 className="order-title">Order #{id} status: preparing</h1>
         <div className="badges">
           <Badge className="badge badge-priority" text="PRIORITY" />
           <Badge className="badge badge-preparing" text="PREPARING ORDER" />

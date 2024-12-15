@@ -16,7 +16,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order_form" element={<OrderForm/>} />
-        <Route path="/order_status" element={<OrderStatus/>} />
+        <Route path="/orders/:id" element={<OrderStatus/>} />
       </Routes>
     </div>
   );
