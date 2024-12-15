@@ -1,0 +1,14 @@
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+}
+
+.badge-priority {
+  background-color: #dc3545;
+}
+
+.badge-preparing {
+  background-color: #28a745;
+}
