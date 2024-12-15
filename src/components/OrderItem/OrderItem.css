@@ -1,0 +1,23 @@
+.order-item {
+  margin-bottom: 1rem;
+}
+
+.order-item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.order-item-name {
+  font-size: 1.2rem;
+}
+
+.order-item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.order-item-ingredients {
+  color: #666;
+  font-style: italic;
+}
