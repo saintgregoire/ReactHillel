@@ -1,0 +1,71 @@
+.container-order {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.container-order > h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.container-order fieldset {
+  border: none;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.checkbox-group {
+  margin: 2rem 0;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#priority {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #666;
+  border-radius: 4px;
+}
+
+.order-btn {
+  color: black;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 999px;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+  background: #e5a700;
+}

@@ -16,6 +16,7 @@ function Header() {
         </NavLink>
         <NavLink to="/menu" className="logo">Menu</NavLink>
         <NavLink to="/cart" className="logo">Cart</NavLink>
+        <NavLink to="/order_form" className="logo">Order</NavLink>
       </nav>
       <Input
         type="text"

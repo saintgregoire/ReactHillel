@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './Button.css'
 
 function Button(props){
@@ -9,4 +10,4 @@ function Button(props){
   )
 }
 
-export default Button
+export default memo(Button);

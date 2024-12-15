@@ -5,7 +5,8 @@
   font-family: Arial, sans-serif;
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 .container {
@@ -14,15 +15,15 @@ body, html {
   min-height: 100vh;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
 
-a.active{
+a.active {
   color: white;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
