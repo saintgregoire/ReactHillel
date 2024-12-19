@@ -34,7 +34,6 @@ function Header() {
         <NavLink to="/order_form" className="logo">
           Order Form
         </NavLink>
-        {/* <NavLink to="/orders/5T460L" className="logo">Order Status</NavLink> */}
       </nav>
       <form onSubmit={formSubmit}>
         <Input

@@ -1,8 +1,22 @@
 import { memo } from "react";
 import "./Input.css";
+import { useController } from "react-hook-form";
 
 function Input(props) {
-  const { type = "text", placeholder, ariaLabel, className, value, onChange, id, defaultValue, readOnly, required } = props;
+  const {
+    type = "text",
+    placeholder,
+    ariaLabel,
+    className,
+    value,
+    onChange,
+    id,
+    readOnly,
+    name,
+    control
+  } = props;
+
+  const { field } = useController({name});
 
   return (
     <input
@@ -11,11 +25,10 @@ function Input(props) {
       aria-label={ariaLabel}
       className={className}
       value={value}
-      defaultValue={defaultValue}
       onChange={onChange}
       id={id}
       readOnly={readOnly}
-      required={required}
+      {...field}
     ></input>
   );
 }
