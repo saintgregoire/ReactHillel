@@ -73,17 +73,19 @@ function OrderForm() {
             </div>
           </fieldset>
 
-          {/* <fieldset className="checkbox-group">
+          <fieldset className="checkbox-group">
             <div className="checkbox-wrapper">
               <InputControl
                 type="checkbox"
                 id="priority"
+                name="checkbox"
+                control={form.control}
               />
               <label htmlFor="priority">
                 Want to give your order priority?
               </label>
             </div>
-          </fieldset> */}
+          </fieldset>
 
           <Button
             text="Order now for €12.00"
