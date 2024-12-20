@@ -31,9 +31,6 @@ function Header() {
         <NavLink to="/cart" className="logo">
           Cart
         </NavLink>
-        <NavLink to="/order_form" className="logo">
-          Order Form
-        </NavLink>
       </nav>
       <form onSubmit={formSubmit}>
         <Input
@@ -47,6 +44,6 @@ function Header() {
       <div className="username">{userName}</div>
     </header>
   );
-}
+} 
 
 export default Header;
