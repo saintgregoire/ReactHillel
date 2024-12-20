@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./OrderForm.css";
-import Input from "../../components/Input/Input";
+import InputControl from "../../components/Input/InputControl";
 import { NameContext } from "../../context/NameContext";
 import Button from "../../components/Button/Button";
 import { FormProvider, useForm } from "react-hook-form";
@@ -28,7 +28,7 @@ function OrderForm() {
 
   const form = useForm({
     mode: "onBlur",
-    defaultValues: { firstName: "Исправить на контекст" },
+    defaultValues: { firstName: userName, phone: "", address: "" },
     resolver: zodResolver(schema),
   });
 
@@ -44,7 +44,7 @@ function OrderForm() {
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <fieldset className="form-group">
             <label htmlFor="firstName">First Name</label>
-            <Input
+            <InputControl
               id="firstName"
               name="firstName"
               control={form.control}
@@ -57,7 +57,7 @@ function OrderForm() {
 
           <fieldset className="form-group">
             <label htmlFor="phone">Phone number</label>
-            <Input name="phone" control={form.control} type="tel" id="phone" />
+            <InputControl name="phone" control={form.control} type="tel" id="phone" />
             {form.formState.errors.phone && (
               <p>{form.formState.errors.phone.message}</p>
             )}
@@ -66,16 +66,16 @@ function OrderForm() {
           <fieldset className="form-group">
             <label htmlFor="address">Address</label>
             <div className="input-wrapper">
-              <Input id="address" name="address" control={form.control} />
+              <InputControl id="address" name="address" control={form.control} />
               {form.formState.errors.address && (
                 <p>{form.formState.errors.address.message}</p>
               )}
             </div>
           </fieldset>
 
-          <fieldset className="checkbox-group">
+          {/* <fieldset className="checkbox-group">
             <div className="checkbox-wrapper">
-              <Input
+              <InputControl
                 type="checkbox"
                 id="priority"
               />
@@ -83,7 +83,7 @@ function OrderForm() {
                 Want to give your order priority?
               </label>
             </div>
-          </fieldset>
+          </fieldset> */}
 
           <Button
             text="Order now for €12.00"

@@ -1,6 +1,5 @@
-import { memo } from "react";
+import { memo } from 'react'
 import "./Input.css";
-import { useController } from "react-hook-form";
 
 function Input(props) {
   const {
@@ -9,15 +8,8 @@ function Input(props) {
     ariaLabel,
     className,
     value,
-    onChange,
-    id,
-    readOnly,
-    name,
-    control
+    onChange
   } = props;
-
-  const { field } = useController({name});
-
   return (
     <input
       type={type}
@@ -26,11 +18,8 @@ function Input(props) {
       className={className}
       value={value}
       onChange={onChange}
-      id={id}
-      readOnly={readOnly}
-      {...field}
     ></input>
-  );
+  )
 }
 
 export default memo(Input);
