@@ -50,26 +50,17 @@ function OrderForm() {
               control={form.control}
               readOnly={true}
             />
-            {form.formState.errors.firstName && (
-              <p>{form.formState.errors.firstName.message}</p>
-            )}
           </fieldset>
 
           <fieldset className="form-group">
             <label htmlFor="phone">Phone number</label>
             <InputControl name="phone" control={form.control} type="tel" id="phone" />
-            {form.formState.errors.phone && (
-              <p>{form.formState.errors.phone.message}</p>
-            )}
           </fieldset>
 
           <fieldset className="form-group">
             <label htmlFor="address">Address</label>
             <div className="input-wrapper">
               <InputControl id="address" name="address" control={form.control} />
-              {form.formState.errors.address && (
-                <p>{form.formState.errors.address.message}</p>
-              )}
             </div>
           </fieldset>
 
