@@ -5,28 +5,11 @@ import "./Cart.css";
 import { Link, useNavigate } from "react-router";
 import { useContext } from "react";
 import { NameContext } from "../../context/NameContext";
+import { CartContext } from "../../context/CartContext";
 
 function Cart() {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Margherita",
-      price: 12.0,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Romana",
-      price: 15.0,
-      quantity: 2,
-    },
-    {
-      id: 3,
-      name: "Prosciutto e Rucola",
-      price: 16.0,
-      quantity: 1,
-    },
-  ];
+
+  const {cartItems, onClear} = useContext(CartContext);
 
   const {userName} = useContext(NameContext);
   
@@ -44,12 +27,12 @@ function Cart() {
       <h1 className="cart-title">Your cart, {userName}</h1>
 
       <div className="cart-items">
-        {cartItems.map((item)=> (
-          <CartItem key={item.id} name={item.name} price={item.price} quantity={item.quantity} />
+        {cartItems.cartItems.map((item)=> (
+          <CartItem key={item.id} id={item.id} name={item.name} price={item.unitPrice} quantity={item.qty} />
         ))}
         <div className="cart-actions">
             <Button className={"order-btn"} text={'Order pizzas'} onClick={makeOrder} />
-            <Button className={"clear-btn"} text={'Clear cart'} />
+            <Button className={"clear-btn"} text={'Clear cart'} onClick={onClear} />
         </div>
       </div>
     </div>

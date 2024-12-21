@@ -1,23 +1,15 @@
-import { useState } from "react";
-
+import { useContext } from "react";
 import Button from "../Button/Button";
 import "./PizzaItem.css";
+import { CartContext } from "../../context/CartContext";
 
 function PizzaItem(props) {
   const { data } = props;
-  const { name, imageUrl, ingredients, unitPrice, soldOut } = data;
+  const { id, name, imageUrl, ingredients, unitPrice, soldOut } = data;
 
-  const [count, setCount] = useState(0);
+  const { onAdd, onIncrement, onDecrement } = useContext(CartContext);
 
-  const incrementCounter = () => {
-    setCount(count + 1);
-  };
-
-  const decrementCounter = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
+  const count = 0;
 
   return (
     <div className="pizza-item">
@@ -36,23 +28,21 @@ function PizzaItem(props) {
           <Button
             text="ADD TO CART"
             className={count > 0 ? "hidden" : "add-to-cart"}
-            onClick={incrementCounter}
+            onClick={() => onAdd(data)}
           />
-          <div
-            className={count > 0 ? "counter" : "hidden"}
-          >
+          <div className={count > 0 ? "counter" : "hidden"}>
             <Button
               text="-"
               ariaLabel="Decrease quantity"
               className="decrement"
-              onClick={decrementCounter}
+              onClick={() => onDecrement(id)}
             />
             <span>{count}</span>
             <Button
               text="+"
               ariaLabel="Increase quantity"
               className="increment"
-              onClick={incrementCounter}
+              onClick={() => onIncrement(id)}
             />
           </div>
         </div>
