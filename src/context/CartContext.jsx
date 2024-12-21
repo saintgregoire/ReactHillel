@@ -1,5 +1,4 @@
-import { useReducer } from "react";
-import { createContext } from "react";
+import { useReducer, createContext } from "react";
 
 export const CartContext = createContext(null);
 CartContext.displayName = "CartContext";
@@ -12,7 +11,7 @@ const CartContextProvider = ({ children }) => {
       case "ADD":
         return {
           ...state,
-          cartItems: [...state.cartItems, { ...action.payload, qty: 1 }],
+          cartItems: [...state.cartItems, { ...action.payload, qty: 1, price: action.payload.unitPrice }],
         };
       case "CLEAR":
         return initialState;
@@ -24,6 +23,7 @@ const CartContextProvider = ({ children }) => {
             return {
               ...i,
               qty: i.qty + 1,
+              price: i.price + i.unitPrice,
             };
           }),
         };
@@ -35,8 +35,10 @@ const CartContextProvider = ({ children }) => {
             return {
               ...i,
               qty: i.qty - 1,
+              price: i.price - i.unitPrice,
             };
-          }),
+          })
+          .filter((i) => i.qty > 0),
         };
       case "DELETE":
         return {

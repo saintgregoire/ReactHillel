@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "./PizzaItem.css";
 import { CartContext } from "../../context/CartContext";
@@ -7,9 +7,24 @@ function PizzaItem(props) {
   const { data } = props;
   const { id, name, imageUrl, ingredients, unitPrice, soldOut } = data;
 
-  const { onAdd, onIncrement, onDecrement } = useContext(CartContext);
+  const { onAdd, onIncrement, onDecrement, cartItems } =
+    useContext(CartContext);
 
-  const count = 0;
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const counterValue = () => {
+      console.log("WORK");
+      const item = cartItems.cartItems.find((item) => item.id === id);
+      if (item) {
+        setCount(item.qty);
+      } else{
+        setCount(0);
+      }
+    };
+
+    counterValue();
+  }, [cartItems.cartItems]);
 
   return (
     <div className="pizza-item">
