@@ -28,18 +28,28 @@ const CartContextProvider = ({ children }) => {
           }),
         };
       case "DECREMENT":
-        return {
-          ...state,
-          cartItems: state.cartItems.map((i) => {
-            if (i.id !== action.payload) return i;
+        {
+          const existingItem = state.cartItems.find((i) => i.id === action.payload);
+        
+          if (existingItem.qty >= 2) {
             return {
-              ...i,
-              qty: i.qty - 1,
-              price: i.price - i.unitPrice,
+              ...state,
+              cartItems: state.cartItems.map((i) => {
+                if (i.id !== action.payload) return i;
+                return {
+                  ...i,
+                  qty: i.qty - 1,
+                  price: i.price - i.unitPrice,
+                };
+              }),
             };
-          })
-          .filter((i) => i.qty > 0),
-        };
+          } else {
+            return {
+              ...state,
+              cartItems: state.cartItems.filter((i) => i.id !== action.payload),
+            };
+          }
+        }
       case "DELETE":
         return {
           ...state,
