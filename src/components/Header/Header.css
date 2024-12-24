@@ -28,6 +28,6 @@ nav > a:hover{
   background-color: #ffe084;
   border: none;
   padding: 0.5rem 1rem;
-  width: 300px;
+  max-width: 300px;
   font-style: italic;
 }

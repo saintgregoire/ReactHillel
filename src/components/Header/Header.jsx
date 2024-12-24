@@ -25,12 +25,12 @@ function Header() {
         <NavLink to="/" className="logo">
           PIZZA DAY
         </NavLink>
-        <NavLink to="/menu" className="logo">
+        {/* <NavLink to="/menu" className="logo">
           Menu
-        </NavLink>
-        <NavLink to="/cart" className="logo">
+        </NavLink> */}
+        {/* <NavLink to="/cart" className="logo">
           Cart
-        </NavLink>
+        </NavLink> */}
       </nav>
       <form onSubmit={formSubmit}>
         <Input
@@ -41,7 +41,7 @@ function Header() {
           onChange={changeInputValue}
         />
       </form>
-      <div className="username">{userName}</div>
+      {userName && <div className="username">{userName}</div> }
     </header>
   );
 } 

@@ -6,6 +6,7 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import OrderForm from "./pages/OrderForm/OrderForm";
 import OrderStatus from "./pages/OrderStatus/OrderStatus";
+import CartWidget from "./components/CartVidget/CartWidget";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/order_form" element={<OrderForm/>} />
         <Route path="/orders/:id" element={<OrderStatus/>} />
       </Routes>
+      <CartWidget />
     </div>
   );
 }

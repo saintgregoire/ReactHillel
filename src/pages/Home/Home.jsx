@@ -24,12 +24,12 @@ function Home() {
   if(userName.trim() === ""){
     return (
       <main>
-        <h1>The best pizza.</h1>
+        <h1 className="title_home">The best pizza.</h1>
         <p className="subtitle">Straight out of the oven, straight to you.</p>
         <p className="welcome">
           👉 Welcome! Please start by telling us your name:
         </p>
-        <form onSubmit={handleClick}>
+        <form className="home_form" onSubmit={handleClick}>
         <Input
           placeholder={"Your full name"}
           ariaLabel={"Your full name"}
@@ -37,14 +37,15 @@ function Home() {
           value={nameInputValue}
           onChange={handleChangeValue}
         />
-        <Button text={"Start Order"} className={"btn"} type={"submit"} />
+        <Button text={"Start Order"} className={nameInputValue.trim() === "" ? "hidden" : "btn"} type={"submit"} />
       </form>
       </main>
     );
   }
   return(
     <main>
-      <h1>Hello, {userName}</h1>
+      <h1 className="title_home">The best pizza.</h1>
+      <Button text={`Start Order, ${userName}`} className={"btn"} onClick={() => navigate("/menu")} />
     </main>
   )
 }

@@ -1,0 +1,25 @@
+.widget{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgb(41 37 36);
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.widget_left{
+  display: flex;
+  gap: 1rem;
+}
+
+.widget_link{
+  color: white;
+}
+
+.widget_link:hover{
+  opacity: .8;
+}
