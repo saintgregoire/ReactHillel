@@ -1,20 +1,34 @@
+import { useContext, useEffect } from "react";
 import PizzaItem from "../../components/PizzaItem/PizzaItem";
-import useFetch from "../../hooks/useFetch";
 import "./Menu.css";
+import { CartContext } from "../../context/CartContext";
 
 function Menu() {
 
-  const { data, loading, error } = useFetch("https://react-fast-pizza-api.onrender.com/api/menu") ;
+  const { onInit, cartItems } = useContext(CartContext);
 
-  if(loading){
-    return (
-      <h1>Loading ...</h1>
-    )
-  }
+  useEffect(() => {
+    const getPizzas = async () => {
+      try {
+        const resp = await fetch(
+          "https://react-fast-pizza-api.onrender.com/api/menu"
+        );
+        if (!resp.ok) {
+          throw new Error("Failed to fetch");
+        }
+        const data = await resp.json();
+        onInit(data.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+    getPizzas();
+  }, [onInit]);
+
   return (
     <div className="menu-container">
-      {error && <h1>{error}</h1>}
-      {data.map((pizza) => (
+      {cartItems.items.map((pizza) => (
         <PizzaItem key={pizza.id} data={pizza} />
       ))}
     </div>
