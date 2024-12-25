@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { memo, useContext, useMemo } from "react";
 import Button from "../Button/Button";
 import "./PizzaItem.css";
 import { CartContext } from "../../context/CartContext";
@@ -17,7 +17,7 @@ function PizzaItem(props) {
     } else {
       return 0;
     }
-  }, [cartItems.cartItems]);
+  }, [cartItems.cartItems, id]);
 
   return (
     <div className="pizza-item">
@@ -59,4 +59,4 @@ function PizzaItem(props) {
   );
 }
 
-export default PizzaItem;
+export default memo(PizzaItem);
