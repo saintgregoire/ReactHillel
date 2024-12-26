@@ -3,6 +3,8 @@ import Badge from "../../components/Badge/Badge";
 import OrderItem from "../../components/OrderItem/OrderItem";
 import { useParams } from "react-router";
 import useFetch from "../../hooks/useFetch";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 function OrderStatus() {
   const { id } = useParams();
@@ -11,7 +13,23 @@ function OrderStatus() {
     `https://react-fast-pizza-api.onrender.com/api/order/${id}`
   );
 
-  console.log(data);
+  const {cartItems} = useContext(CartContext);
+
+  const estimatedDate = new Date(data.estimatedDelivery);
+  const dateNow = new Date();
+
+  const timeLeftInMs = estimatedDate - dateNow;
+  const timeLeftInMinutes = Math.floor(timeLeftInMs / (1000 * 60));
+
+  const options = {
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+
+  const formattedDate = estimatedDate.toLocaleString("en-US", options);
 
   if (loading) {
     return (
@@ -41,10 +59,8 @@ function OrderStatus() {
         </div>
 
         <div className="time-banner">
-          <div className="time-left">Only 49 minutes left 😃</div>
-          <div className="estimated-time">
-            (Estimated delivery: Dec 12, 01:37 PM)
-          </div>
+          <div className="time-left">Only {timeLeftInMinutes} minutes left 😃</div>
+          <div className="estimated-time">(Estimated delivery: {formattedDate})</div>
         </div>
 
         <div className="order-details">
@@ -55,7 +71,7 @@ function OrderStatus() {
                 name={item.name}
                 quantity={item.quantity}
                 price={`${item.totalPrice}.00`}
-                ingredients=""
+                ingredients={cartItems.items[item.pizzaId].ingredients.join(', ')}
               />
             ))}
         </div>
@@ -65,10 +81,12 @@ function OrderStatus() {
             <span className="price-label">Price pizza:</span>
             <span className="price-value">€{data.orderPrice}.00</span>
           </div>
-          <div className="price-item">
-            <span className="price-label">Price priority:</span>
-            <span className="price-value">€{data.priorityPrice}.00</span>
-          </div>
+          {data.priority && (
+            <div className="price-item">
+              <span className="price-label">Price priority:</span>
+              <span className="price-value">€{data.priorityPrice}.00</span>
+            </div>
+          )}
           <div className="price-item">
             <span className="price-label">To pay on delivery:</span>
             <span className="price-value">

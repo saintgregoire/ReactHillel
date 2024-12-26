@@ -25,7 +25,10 @@ const CartContextProvider = ({ children }) => {
           ],
         };
       case "CLEAR":
-        return initialState;
+        return {
+          ...state,
+          cartItems: []
+        };
       case "INCREMENT":
         return {
           ...state,

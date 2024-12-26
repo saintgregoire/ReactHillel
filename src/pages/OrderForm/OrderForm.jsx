@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import "./OrderForm.css";
 import InputControl from "../../components/Input/InputControl";
 import { NameContext } from "../../context/NameContext";
@@ -81,6 +81,12 @@ function OrderForm() {
     }
   };
 
+  const orderPrice = useMemo(() => {
+    return cartItems.cartItems.reduce(
+      (acc, item) => acc + item.price, 0
+    )
+  }, [cartItems.cartItems]);
+
   if (errorMessage) {
     return (
       <div className="container-order container-with-error">
@@ -145,7 +151,7 @@ function OrderForm() {
           </fieldset>
 
           <Button
-            text="Order now for €12.00"
+            text={`Order now for €${orderPrice}.00`}
             type="submit"
             className="order-btn"
           />
