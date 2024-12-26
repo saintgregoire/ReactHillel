@@ -6,7 +6,7 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getPizzas = async () => {
+    const getData = async () => {
       try {
         setLoading(true);
         const resp = await fetch(url);
@@ -23,7 +23,7 @@ const useFetch = (url) => {
       }
     };
 
-    getPizzas();
+    getData();
   }, [url]);
 
   return {

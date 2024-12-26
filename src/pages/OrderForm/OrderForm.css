@@ -4,6 +4,10 @@
   padding: 2rem;
 }
 
+.container-with-error {
+  text-align: center;
+}
+
 .container-order > h1 {
   font-size: 2rem;
   color: #333;

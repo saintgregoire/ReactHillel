@@ -4,6 +4,10 @@
   padding: 2rem;
 }
 
+.order-container-with-error {
+  text-align: center;
+}
+
 .order_status-container *{
   font-family: monospace;
 }
