@@ -1,7 +1,7 @@
 .container-cart {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
 }
 
 .back-link {
@@ -17,7 +17,7 @@
 }
 
 .cart-actions {
-  margin-top: 2rem;
+  margin: 2rem 0 3rem;
   display: flex;
   gap: 1rem;
 }

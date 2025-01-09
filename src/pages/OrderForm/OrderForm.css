@@ -18,6 +18,10 @@
   border: none;
 }
 
+.order-form{
+  padding-bottom: 30px;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }

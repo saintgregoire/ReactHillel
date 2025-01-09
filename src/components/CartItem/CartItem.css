@@ -41,3 +41,9 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+@media (max-width:470px) {
+  .delete-btn{
+    display: none;
+  }
+}

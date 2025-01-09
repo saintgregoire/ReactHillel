@@ -25,12 +25,6 @@ function Header() {
         <NavLink to="/" className="logo">
           PIZZA DAY
         </NavLink>
-        {/* <NavLink to="/menu" className="logo">
-          Menu
-        </NavLink> */}
-        {/* <NavLink to="/cart" className="logo">
-          Cart
-        </NavLink> */}
       </nav>
       <form onSubmit={formSubmit}>
         <Input

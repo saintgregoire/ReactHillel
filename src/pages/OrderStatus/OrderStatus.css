@@ -73,3 +73,24 @@
 .price-value {
   font-weight: bold;
 }
+
+@media (max-width: 769px){
+  .order_status-container{
+    width: 100%;
+  }
+  .order_status-header{
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 470px){
+  .order-title{
+    font-size: 1.3rem;
+  }
+  .time-banner{
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -104,7 +104,7 @@ function OrderForm() {
     <div className="container-order">
       <h1>Ready to order? Let&apos;s go!</h1>
       <FormProvider {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="order-form">
           <fieldset className="form-group">
             <label htmlFor="firstName">First Name</label>
             <InputControl

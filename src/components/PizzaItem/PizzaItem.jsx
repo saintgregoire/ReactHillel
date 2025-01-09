@@ -22,39 +22,41 @@ function PizzaItem(props) {
   return (
     <div className="pizza-item">
       <img src={imageUrl} alt={`${name} Pizza`} className="pizza-image" />
-      <div className="pizza-info">
-        <h2>{name}</h2>
-        <p className="ingredients">{ingredients.join(", ")}</p>
-        {!soldOut ? (
-          <p className="price">{`€${unitPrice}.00`}</p>
-        ) : (
-          <p className="sold-out">SOLD OUT</p>
+      <div className="pizza-cart-components">
+        <div className="pizza-info">
+          <h2>{name}</h2>
+          <p className="ingredients">{ingredients.join(", ")}</p>
+          {!soldOut ? (
+            <p className="price">{`€${unitPrice}.00`}</p>
+          ) : (
+            <p className="sold-out">SOLD OUT</p>
+          )}
+        </div>
+        {!soldOut && (
+          <div className="cart-controls">
+            <Button
+              text="ADD TO CART"
+              className={count > 0 ? "hidden" : "add-to-cart"}
+              onClick={() => onAdd(data)}
+            />
+            <div className={count > 0 ? "counter" : "hidden"}>
+              <Button
+                text="-"
+                ariaLabel="Decrease quantity"
+                className="decrement"
+                onClick={() => onDecrement(id)}
+              />
+              <span>{count}</span>
+              <Button
+                text="+"
+                ariaLabel="Increase quantity"
+                className="increment"
+                onClick={() => onIncrement(id)}
+              />
+            </div>
+          </div>
         )}
       </div>
-      {!soldOut && (
-        <div className="cart-controls">
-          <Button
-            text="ADD TO CART"
-            className={count > 0 ? "hidden" : "add-to-cart"}
-            onClick={() => onAdd(data)}
-          />
-          <div className={count > 0 ? "counter" : "hidden"}>
-            <Button
-              text="-"
-              ariaLabel="Decrease quantity"
-              className="decrement"
-              onClick={() => onDecrement(id)}
-            />
-            <span>{count}</span>
-            <Button
-              text="+"
-              ariaLabel="Increase quantity"
-              className="increment"
-              onClick={() => onIncrement(id)}
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
